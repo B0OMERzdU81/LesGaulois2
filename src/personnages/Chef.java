@@ -24,7 +24,7 @@ public class Chef {
 	
 	
 	private String prendreParole() {
-		return "Le chef "+nom + " du village " + village.getNom() +' :' ;
+		return "Le chef "+nom + " du village " + village.getNom() +" :" ;
 		
 	}
 	
@@ -33,11 +33,4 @@ public class Chef {
 		romain.recevoirCoup(force/3);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
 }

@@ -4,7 +4,7 @@ public class Romain {
 	private String nom;
 	private int force;
 	private Equipement[] equipement;
-	private int nbEquiment=0;
+	private int nbEquipement=0;
 	
 	public Romain(String nom, int force) {
 		assert force>0 : "La force du romain est inférieur à 1";
@@ -38,34 +38,44 @@ public class Romain {
 		assert i>force: "La force du romain n'a pas diminué, il a des joues en béton";
 	}
 	
+	
 	public void conditionEquipement(Equipement equiper) {
 		if(equipement[0]==equiper || equipement[1]==equiper){
-			System.out.println("Le soldat "+nom + " possède déjà un casque");
-			break;
+			System.out.println("Le soldat "+nom + " possède déjà un "+ equiper.toString());
 		}
 		else {
 			if(equipement[0]==null) {
-				equipement[0]=equipement;
+				equipement[0]=equiper;
+				nbEquipement++;
+				System.out.println("Le soldat " + nom + " s'équipe avec un " + equiper.toString() + "!");
+
 			}
-			if equipement
-				
+			else {
+				equipement[1]=equiper;
+				nbEquipement++;
+				System.out.println("Le soldat " + nom + " s'équipe avec un " + equiper.toString() + "!");			
 			}
-		
+		}
 	}
+	
 	public void sEquiper(Equipement equiper) {
 		if (equipement[0]!=null && equipement[1]!= null) {
-			System.out.println("Le soldat "+nom + "est déjà bien protégé!");
+			System.out.println("Le soldat "+nom + " est déjà bien protégé !");
 		}
 		else {
 			switch (equiper) {
 			case CASQUE:
 				conditionEquipement(equiper);
-				}
+				break;
 				
+			case BOUCLIER:
+				conditionEquipement(equiper);
+				break;
 			}
 		}
-		
 	}
+		
+		
 	
 	
 	
@@ -77,6 +87,9 @@ public class Romain {
 		jaximus.prendreParole();
 		jaximus.parler("Je n'aime pas me faire frapper");
 		jaximus.recevoirCoup(1);
+		
+		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.BOUCLIER);
 		
 		System.out.println(Equipement.BOUCLIER);
 		System.out.println(Equipement.CASQUE);
